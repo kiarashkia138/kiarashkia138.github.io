@@ -1,18 +1,6 @@
 const root = document.documentElement;
 root.classList.add('js');
 
-// Theme: saved choice, otherwise follow the system
-const toggle = document.getElementById('theme-toggle');
-const stored = (() => { try { return localStorage.getItem('theme'); } catch { return null; } })();
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-root.dataset.theme = stored || (prefersDark.matches ? 'dark' : 'light');
-
-toggle.addEventListener('click', () => {
-    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('theme', next); } catch {}
-});
-
 // Mobile menu
 const menuBtn = document.getElementById('menu-toggle');
 const links = document.getElementById('nav-links');

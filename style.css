@@ -1,4 +1,5 @@
 :root {
+    color-scheme: light;
     --bg: #faf8f5;
     --bg-alt: #f2efe9;
     --surface: #ffffff;
@@ -12,18 +13,6 @@
     --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     --radius: 14px;
     --max: 1040px;
-}
-
-:root[data-theme="dark"] {
-    --bg: #14130f;
-    --bg-alt: #1a1914;
-    --surface: #1f1e19;
-    --text: #efece5;
-    --muted: #a39f95;
-    --line: #2f2d26;
-    --accent: #7fc4b3;
-    --accent-soft: #1f2e2a;
-    --accent-ink: #10231f;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -72,15 +61,12 @@ h1, h2, h3, p { margin: 0; }
 .nav-links a { font-size: .92rem; color: var(--muted); transition: color .2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-.theme-toggle, .menu-toggle {
+.menu-toggle {
     background: none; border: 1px solid var(--line); color: var(--text);
     width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
     display: grid; place-items: center; transition: border-color .2s, background .2s;
 }
-.theme-toggle:hover, .menu-toggle:hover { background: var(--bg-alt); }
-.i-sun { display: none; }
-:root[data-theme="dark"] .i-sun { display: block; }
-:root[data-theme="dark"] .i-moon { display: none; }
+.menu-toggle:hover { background: var(--bg-alt); }
 .menu-toggle { display: none; position: relative; }
 .menu-toggle span {
     position: absolute; left: 10px; right: 10px; height: 1.5px; background: currentColor;
@@ -100,7 +86,7 @@ h1, h2, h3, p { margin: 0; }
 }
 h1 {
     font-family: var(--serif); font-weight: 500;
-    font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.05; letter-spacing: -.02em;
+    font-size: clamp(2.3rem, 4.6vw, 3.5rem); line-height: 1.08; letter-spacing: -.02em;
     margin-bottom: 24px;
 }
 .lead { font-size: 1.15rem; color: var(--muted); max-width: 33em; margin-bottom: 32px; }
@@ -223,3 +209,9 @@ h1 {
     *, *::before, *::after { transition: none !important; }
     .js .reveal { opacity: 1; transform: none; }
 }
+
+.nowrap { white-space: nowrap; }
+a.inline { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); transition: border-color .2s; }
+a.inline:hover { border-bottom-color: var(--accent); }
+.pub h3 a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s, color .2s; }
+.pub h3 a:hover { color: var(--accent); background-size: 100% 1px; }
